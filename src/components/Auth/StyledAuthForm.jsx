@@ -1,4 +1,4 @@
-import { Box, Link, styled, Typography } from "@mui/material";
+import { Box, Link, styled, Typography } from '@mui/material';
 
 export const FormBox = styled(Box)`
   margin: 8rem auto;

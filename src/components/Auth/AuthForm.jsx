@@ -9,50 +9,52 @@ function AuthForm() {
 
   const createAccountHandler = () => {
     setHasAccount(prevState => !prevState);
-  }
+  };
 
   const createAccountText = hasAccount
-    ? "Don't have an account? Click here"
-    : "Already have an account? Click here";
+    ? 'Don\'t have an account? Click here'
+    : 'Already have an account? Click here';
 
   const formik = useFormik({
     initialValues: {
       email: '',
       fullName: '',
-      password: ''
+      password: '',
     },
     validate: values => {
       const errors = {};
 
-      if (!values.fullName && !hasAccount){
+      if (!values.fullName && !hasAccount) {
         errors.fullName = 'Required';
-        console.log(values.fullName)
-      } else if (values.fullName.length > 50 && !hasAccount) {
+      }
+      else if (values.fullName.length > 50 && !hasAccount) {
         errors.fullName = 'Must be 50 characters or less';
       }
 
       if (!values.email) {
         errors.email = 'Required';
-      } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+      }
+      else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
         errors.email = 'Invalid email address';
       }
 
       if (!values.password) {
         errors.password = 'Required';
-      } else if (values.password.length < 6) {
+      }
+      else if (values.password.length < 6) {
         errors.password = 'Must be 6 digits or more';
       }
-      
+
       return errors;
     },
     onSubmit(value) {
-      console.log(value)
-    }
-  })
+      console.log(value);
+    },
+  });
 
-  const hasFullNameError = !!formik.errors.fullName && formik.touched.fullName
-  const hasEmailError = !!formik.errors.email && formik.touched.email
-  const hasPasswordError = !!formik.errors.password && formik.touched.password
+  const hasFullNameError = !!formik.errors.fullName && formik.touched.fullName;
+  const hasEmailError = !!formik.errors.email && formik.touched.email;
+  const hasPasswordError = !!formik.errors.password && formik.touched.password;
 
   return (
     <FormBox component="form" onSubmit={formik.handleSubmit}>
@@ -113,4 +115,4 @@ function AuthForm() {
   );
 }
 
-export default AuthForm
+export default AuthForm;
