@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextField } from '@mui/material';
+import { TextField, Zoom } from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { FormBox, FormTitle, CreateAccountLink } from './StyledAuthForm';
 import { useFormik } from 'formik';
@@ -60,7 +60,7 @@ function AuthForm() {
     <FormBox component="form" onSubmit={formik.handleSubmit}>
       <FormTitle variant="h3">Client Management APP</FormTitle>
 
-      {!hasAccount && (
+      <Zoom in={!hasAccount} unmountOnExit>
         <TextField
           required
           id="fullName"
@@ -71,7 +71,7 @@ function AuthForm() {
           error={hasFullNameError}
           helperText={hasFullNameError && formik.errors.fullName}
         />
-      )}
+      </Zoom>
 
       <TextField
         required
