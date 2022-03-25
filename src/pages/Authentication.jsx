@@ -1,12 +1,13 @@
+import { Container } from '@mui/material';
 import React from 'react';
-import AuthForm from '../components/Auth/AuthForm';
+import AuthForm from '../components/UI/Auth/AuthForm';
 
 function Authentication() {
   return (
-    <div style={{ padding: "0 10px" }}>
+    <Container >
       <AuthForm />
-    </div>
+    </Container>
   );
 }
 
-export default Authentication
+export default Authentication;

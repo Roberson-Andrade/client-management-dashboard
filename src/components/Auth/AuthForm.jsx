@@ -15,12 +15,14 @@ function AuthForm() {
     ? 'Don\'t have an account? Click here'
     : 'Already have an account? Click here';
 
+  const initialValues = {
+    email: '',
+    fullName: '',
+    password: '',
+  };
+
   const formik = useFormik({
-    initialValues: {
-      email: '',
-      fullName: '',
-      password: '',
-    },
+    initialValues,
     validate: values => {
       const errors = {};
 
