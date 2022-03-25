@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 import React from 'react';
-import AuthForm from '../components/UI/Auth/AuthForm';
+import AuthForm from '../components/Auth/AuthForm';
 
 function Authentication() {
   return (
